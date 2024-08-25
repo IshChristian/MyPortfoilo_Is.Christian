@@ -1,49 +1,135 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-body{
-    background-color: #ffff;
-}
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 3px 3px 0px;
-    background-color: azure;
-    left: 0;
-    right: 0;
-    height: 60px;
-}
-.logo{
-    font-size: 15px;
-    font-weight: 600;
-    color: bisque;
-    text-align: left;
-    float: left;
-}
-.logo span{
-    font-size: 20px;
-    color: black;
-}
-ul li{
-    text-decoration: none;
-    outline-style: none;
-}
-a{
-    text-decoration: none;
-}
-.menu-list li{
-    display: inline-block;
-    position: relative;
-    padding: 0px 3px 3px 0px;
-    
-}
-section{
-    justify-content: center;
-    align-items: center;
-    display: inline-block;
-    position: relative;
-}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .menu {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu .logo h3 {
+            margin: 0;
+        }
+
+        .menu .logo span {
+            color: #f4c542;
+        }
+
+        .menu-list ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .menu-list ul li {
+            margin-left: 20px;
+        }
+
+        .menu-list ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu-list ul li a:hover {
+            color: #f4c542;
+        }
+
+        #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .image-hero img {
+            border-radius: 50%;
+            margin-right: 30px;
+        }
+
+        .welcome-hero h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .welcome-hero h4 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .about-me {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px 0;
+            background-color: #fff;
+        }
+
+        .about-session h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .skills, .experience, .projects, .contact {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .skills h3, .experience h3, .projects h3, .contact h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .skills ul, .experience ul, .projects ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills li, .experience li, .projects li {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact form input, .contact form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact form button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact form button:hover {
+            background-color: #f4c542;
+        }
