@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <title>DevFolio - Is.Christian</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+        <meta content="IsChristian Website" name="keywords">
+        <meta content="IsChristian Website" name="description">
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -19,6 +19,9 @@
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+          <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
         <!-- Template Stylesheet -->
         <link href="style.css" rel="stylesheet">
@@ -50,32 +53,37 @@
 
 
         <!-- Hero Start -->
-        <div class="hero" id="home">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="hero-content">
-                            <div class="hero-text">
-                                <p>I'm</p>
-                                <h1>Ishimwe Christian</h1>
-                                <h2></h2>
-                                <div class="typed-text">Web Fullstack Developer, Graphic Design, Project Manager</div>
-                            </div>
-                            <div class="hero-btn">
-                                <a class="btn" href="https://www.linkedin.com/in/ishimwe-christian-b2bb5730b">Hire Me</a>
-                                <a class="btn" href="https://www.linkedin.com/in/ishimwe-christian-b2bb5730b/">Contact Me</a>
-                            </div>
-                        </div>
+<div class="hero" id="home">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <!-- Hero Content -->
+            <div class="col-sm-12 col-md-6">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p>I'm</p>
+                        <h1>Ishimwe Christian</h1>
+                        <h2></h2>
+                        <div class="typed-text">Backend Developer, Graphic Design</div>
                     </div>
-                    <div class="col-sm-12 col-md-6 d-none d-md-block">
-                        <div class="hero-image">
-                            <img src="img/me1.png" alt="Hero Image">
-                        </div>
+                    <div class="hero-btn">
+                        <a class="btn flex items-center space-x-2" href="https://www.linkedin.com/in/ishimwe-christian-b2bb5730b">
+                            <i class="fab fa-linkedin text-blue-500"></i>
+                            <span>Hire Me</span>
+                        </a>
                     </div>
                 </div>
             </div>
+            <!-- Hero Image -->
+            <div class="col-sm-12 col-md-6 d-none d-md-block">
+                <div class="hero-image">
+                    <img src="img/me1.png" alt="Hero Image">
+                </div>
+            </div>
         </div>
-        <!-- Hero End -->
+    </div>
+</div>
+<!-- Hero End -->
+
 
 
         <!-- About Start -->
@@ -98,32 +106,107 @@
                                     I am a Junior Web Developer, where I focus on developing robust web applications using different methods and other modern technologies. My freelance experience has also allowed me to work with diverse clients, further refining my ability to deliver high-quality solutions tailored to unique requirements
                                 </p>
                             </div>
-                            <div class="skills">
-                                <div class="skill-name">
-                                    <p>Web Design</p><p>75%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="skill-name">
-                                    <p>Web Development</p><p>95%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="skill-name">
-                                    <p>Graphic Design</p><p>90%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="skill-name">
-                                    <p>Team Work</p><p>85%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
+                            <!-- Skills Section Start -->
+<div class="skills bg-gray-50 py-12">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <p class="text-blue-500 font-semibold">Skills</p>
+            <h2 class="text-3xl font-bold">What I Am Good At</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Web Design -->
+            <div>
+                <div class="skill-name flex justify-between items-center mb-2">
+                    <p class="flex items-center">
+                        <i class="fas fa-paint-brush text-blue-500 mr-2"></i>
+                        Web Design
+                    </p>
+                    <p>75%</p>
+                </div>
+                <div class="progress bg-gray-300 rounded-full h-3">
+                    <div class="progress-bar bg-blue-500 h-3 rounded-full" style="width: 75%;"></div>
+                </div>
+                <div class="flex space-x-2 mt-2 text-blue-500">
+                    <i class="fab fa-html5"></i>
+                    <i class="fab fa-css3-alt"></i>
+                    <i class="fas fa-drafting-compass"></i>
+                    <i class="fas fa-palette"></i>
+                    <i class="fas fa-vector-square"></i>
+                    <i class="fas fa-ruler-combined"></i>
+                </div>
+            </div>
+
+            <!-- Web Development -->
+            <div>
+                <div class="skill-name flex justify-between items-center mb-2">
+                    <p class="flex items-center">
+                        <i class="fas fa-code text-green-500 mr-2"></i>
+                        Web Development
+                    </p>
+                    <p>95%</p>
+                </div>
+                <div class="progress bg-gray-300 rounded-full h-3">
+                    <div class="progress-bar bg-green-500 h-3 rounded-full" style="width: 95%;"></div>
+                </div>
+                <div class="flex space-x-2 mt-2 text-green-500">
+                    <i class="fab fa-js"></i>
+                    <i class="fab fa-react"></i>
+                    <i class="fab fa-node-js"></i>
+                    <i class="fab fa-php"></i>
+                    <i class="fab fa-laravel"></i>
+                    <i class="fab fa-docker"></i>
+                </div>
+            </div>
+
+            <!-- Graphic Design -->
+            <div>
+                <div class="skill-name flex justify-between items-center mb-2">
+                    <p class="flex items-center">
+                        <i class="fas fa-pencil-ruler text-purple-500 mr-2"></i>
+                        Graphic Design
+                    </p>
+                    <p>90%</p>
+                </div>
+                <div class="progress bg-gray-300 rounded-full h-3">
+                    <div class="progress-bar bg-purple-500 h-3 rounded-full" style="width: 90%;"></div>
+                </div>
+                <div class="flex space-x-2 mt-2 text-purple-500">
+                    <i class="fab fa-adobe"></i>
+                    <i class="fas fa-brush"></i>
+                    <i class="fas fa-camera-retro"></i>
+                    <i class="fas fa-vector-square"></i>
+                    <i class="fas fa-file-image"></i>
+                    <i class="fas fa-palette"></i>
+                </div>
+            </div>
+
+            <!-- Team Work -->
+            <div>
+                <div class="skill-name flex justify-between items-center mb-2">
+                    <p class="flex items-center">
+                        <i class="fas fa-users text-orange-500 mr-2"></i>
+                        Team Work
+                    </p>
+                    <p>85%</p>
+                </div>
+                <div class="progress bg-gray-300 rounded-full h-3">
+                    <div class="progress-bar bg-orange-500 h-3 rounded-full" style="width: 85%;"></div>
+                </div>
+                <div class="flex space-x-2 mt-2 text-orange-500">
+                    <i class="fas fa-users"></i>
+                    <i class="fas fa-handshake"></i>
+                    <i class="fas fa-comments"></i>
+                    <i class="fas fa-lightbulb"></i>
+                    <i class="fas fa-project-diagram"></i>
+                    <i class="fas fa-network-wired"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Skills Section End -->
+
                             <a class="btn" href="#">Learn More</a>
                         </div>
                     </div>
@@ -229,98 +312,163 @@
         </div>
         <!-- Job Experience End -->
         
-        <!-- Portfolio Start -->
-        <div class="portfolio" id="portfolio">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>My Portfolio</p>
-                    <h2>My Excellent Portfolio</h2>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <ul id="portfolio-filter">
-                            <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-1">Web Design</li>
-                            <li data-filter=".filter-2">Web Development</li>
-                            <li data-filter=".filter-3">Ghaphic Design</li>
-                        </ul>
+       <!-- Portfolio Start -->
+  <div id="portfolio" class="bg-gray-50 py-12">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-blue-500 font-semibold">My Portfolio</p>
+        <h2 class="text-3xl font-bold">My Excellent Portfolio</h2>
+      </div>
+      <!-- Portfolio Filter -->
+      <ul class="flex justify-center space-x-4 mb-8">
+        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter="*">All</li>
+        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter=".filter-1">Web Design</li>
+        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter=".filter-2">Web Development</li>
+        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter=".filter-3">Graphic Design</li>
+      </ul>
+      <!-- Portfolio Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Portfolio Item 1 -->
+        <div class="portfolio-item filter-1 bg-white shadow-md rounded-lg p-4">
+          <img src="img/pedicaLogo.png" alt="Pedica Ltd" class="rounded-t-md w-full">
+          <div class="mt-4">
+            <h3 class="text-xl font-bold">Pedica Ltd Website</h3>
+            <p class="text-gray-600 text-sm">Category: Web Design</p>
+            <p class="text-gray-500 text-sm">An informative website for Pedica Ltd.</p>
+            <div class="flex justify-between items-center mt-4">
+              <div class="space-x-2">
+                <a href="https://pedicaltd.com" class="text-gray-500 hover:text-blue-500">
+                  <i class="fas fa-link"></i> Website
+                </a>
+              </div>
+              <span class="text-sm font-semibold text-green-500">Complete</span>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item 2 -->
+        <div class="portfolio-item filter-2 bg-white shadow-md rounded-lg p-4">
+          <img src="img/globalexpense.jpg" alt="Global Expense" class="rounded-t-md w-full">
+          <div class="mt-4">
+            <h3 class="text-xl font-bold">Global Expense Money Tracker</h3>
+            <p class="text-gray-600 text-sm">Category: Web Development</p>
+            <p class="text-gray-500 text-sm">A web app to manage personal finances.</p>
+            <div class="flex justify-between items-center mt-4">
+              <div class="space-x-2">
+                <a href="https://github.com/IshChristian/Global-Expense-Money-Tracker-GEMT-.git" class="text-gray-500 hover:text-blue-500">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://tiangroup.pedicaltd.com" class="text-gray-500 hover:text-blue-500">
+                  <i class="fas fa-link"></i> Website
+                </a>
+              </div>
+              <span class="text-sm font-semibold text-green-500">Complete</span>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item 3 -->
+        <!-- Project 3 -->
+        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
+            <img src="img/tiangroup.jpg" alt="Tian Group" class="rounded-t-lg w-full">
+            <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Tian Group Innovation</h3>
+                <p class="text-sm text-gray-500">Category: Graphic Design</p>
+                <p class="text-sm text-gray-600 mb-4">Corporate branding for Tian Group.</p>
+                <div class="flex justify-between items-center">
+                    <div class="space-x-2">
+                        
                     </div>
-                </div>
-                <div class="row portfolio-container">
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/pedicaLogo.png" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Pedica Ltd Website</h3>
-                                <a class="btn" href="pedicaltd.com" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/globalexpense.jpg" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Global Expense Money Tracker</h3>
-                                <a class="btn" href="tiangroup.pedicaltd.com" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/tiangroup.jpg" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Tian Group Innovation</h3>
-                                <a class="btn" href="img/tiangroup.jpg" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/widosfaith.jpg" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Widows Faith Fellowshhip Ministry</h3>
-                                <a class="btn" href="widowsfaith.org" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/logo 1-01-03.jpg" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>ELectronic One Ltd</h3>
-                                <a class="btn" href="img/logo 1-01-03.jpg" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/logo 3.png" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Rank Virtue Trait</h3>
-                                <a class="btn" href="img/logo 3.png" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/UPS LOGO R.png" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Ubumwe Protocol & Services</h3>
-                                <a class="btn" href="img/UPS LOGO R.png" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
+                    <span class="text-sm font-semibold text-green-500">Active</span>
                 </div>
             </div>
         </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
+            <img src="img/widosfaith.jpg" alt="Widows Faith" class="rounded-t-lg w-full">
+            <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Widows Faith Fellowship Ministry</h3>
+                <p class="text-sm text-gray-500">Category: Web application</p>
+                <p class="text-sm text-gray-600 mb-4">A ministry's official branding.</p>
+                <div class="flex justify-between items-center">
+                    <div class="space-x-2">
+                        <a href="https://widowsfaith.org" class="text-gray-500 hover:text-blue-500">
+                            <i class="fas fa-link"></i> Website
+                        </a>
+                    </div>
+                    <span class="text-sm font-semibold text-green-500">Complete</span>
+                </div>
+            </div>
         </div>
-        <!-- Portfolio End -->
+
+        <!-- Project 5 -->
+        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
+            <img src="img/logo 3.png" alt="Rank Virtue Trait" class="rounded-t-lg w-full">
+            <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Rank Virtue Trait</h3>
+                <p class="text-sm text-gray-500">Category: Graphic Design</p>
+                <p class="text-sm text-gray-600 mb-4">A ranking system for personality traits.</p>
+                <div class="flex justify-between items-center">
+                    <div class="space-x-2">
+                        
+                    </div>
+                    <span class="text-sm font-semibold text-yellow-500">Pending</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
+            <img src="img/UPS LOGO R.png" alt="Ubumwe Protocol & Services" class="rounded-t-lg w-full">
+            <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Ubumwe Protocol & Services</h3>
+                <p class="text-sm text-gray-500">Category: Graphic Design</p>
+                <p class="text-sm text-gray-600 mb-4">Corporate UPS for weddings.</p>
+                <div class="flex justify-between items-center">
+                    <div class="space-x-2">
+                        
+                    </div>
+                    <span class="text-sm font-semibold text-green-500">Active</span>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- Load More Button -->
+      <div class="text-center mt-8">
+        <a href="https://github.com/IshChristian" class="btn bg-blue-500 text-green px-6 py-2 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-600">
+            <i class="fab fa-github"></i>
+            <span>Load More on GitHub</span>
+        </a>
+    </div>
+    </div>
+  </div>
+  <!-- Portfolio End -->
+
+
+<script>
+    // Portfolio Filtering
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            // Remove 'active' class from all buttons
+            filterButtons.forEach((button) => button.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            portfolioItems.forEach((item) => {
+                if (filter === '*' || item.classList.contains(filter.substring(1))) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+
         
         <!-- Price Start -->
         <div class="price" id="price">
