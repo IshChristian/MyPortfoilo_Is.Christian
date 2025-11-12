@@ -1,677 +1,1055 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>DevFolio - Is.Christian</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="IsChristian Website" name="keywords">
-        <meta content="IsChristian Website" name="description">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishimwe Christian - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+        :root {
+            --primary: #6366f1;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --dark-bg: #0f172a;
+            --darker-bg: #0a0e27;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #334155;
+        }
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        html {
+            scroll-behavior: smooth;
+        }
 
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-          <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        body {
+            background: linear-gradient(135deg, var(--darker-bg) 0%, #1a1f3a 50%, var(--dark-bg) 100%);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
+        /* Animated Background Blobs */
+        .blob {
+            position: fixed;
+            opacity: 0.05;
+            pointer-events: none;
+        }
 
-        <!-- Template Stylesheet -->
-        <link href="style.css" rel="stylesheet">
-    </head>
+        .blob1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 25s infinite;
+            z-index: 1;
+        }
 
-    <body data-spy="scroll" data-target=".navbar" data-offset="51">
-        <!-- Nav Bar Start -->
-        <div class="navbar navbar-expand-lg bg-light navbar-light">
-            <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">Is.Christian</a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon bg-white"></span>
-                </button>
+        .blob2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            bottom: 100px;
+            left: -50px;
+            animation: float 30s infinite 5s;
+            z-index: 1;
+        }
 
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto">
-                        <a href="#home" class="nav-item nav-link active">Home</a>
-                        <a href="#about" class="nav-item nav-link">About</a>
-                        <a href="#service" class="nav-item nav-link">Service</a>
-                        <a href="#experience" class="nav-item nav-link">Experience</a>
-                        <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                        <a href="#price" class="nav-item nav-link">Price</a>
-                        <a href="#review" class="nav-item nav-link">Review</a>
-                    </div>
-                </div>
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(50px, 50px) rotate(180deg); }
+        }
+
+        /* Smooth Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .animate-glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* Card Styles with Blur */
+        .card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header p {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .section-header .desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Skill Progress */
+        .skill-card {
+            padding: 24px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .skill-header strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .skill-header span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(148, 163, 184, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-icons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .skill-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-icon:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.2);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            width: 48%;
+        }
+
+        .timeline-item.left {
+            margin-left: 0;
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            margin-left: 52%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            border: 4px solid var(--darker-bg);
+            top: 20px;
+        }
+
+        .timeline-item.right .timeline-dot {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content h4 {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .portfolio-card .category {
+            color: var(--primary);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .portfolio-links a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-links a:hover {
+            color: var(--secondary);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .status-badge.complete {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+        }
+
+        /* Service Grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-item {
+            padding: 32px;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .service-item p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 60px 0 30px;
+            margin-top: 100px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                margin-left: 80px !important;
+                text-align: left;
+            }
+
+            .timeline-item .timeline-dot {
+                left: 30px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* Stagger animations */
+        .stagger-item {
+            opacity: 0;
+        }
+
+        .stagger-item.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Custom delays */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+
+    <!-- Navigation -->
+    <nav class="py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                IS.CHRISTIAN
+            </div>
+            <div class="hidden md:flex gap-8">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#experience">Experience</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#testimonials">Reviews</a>
             </div>
         </div>
-        <!-- Nav Bar End -->
+    </nav>
 
-
-        <!-- Hero Start -->
-<div class="hero" id="home">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <!-- Hero Content -->
-            <div class="col-sm-12 col-md-6">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="hero-content">
-                    <div class="hero-text">
-                        <p>I'm</p>
-                        <h1>Ishimwe Christian</h1>
-                        <h2></h2>
-                        <div class="typed-text">Backend Developer, Graphic Design</div>
-                    </div>
-                    <div class="hero-btn">
-                        <a class="btn flex items-center space-x-2" href="https://www.linkedin.com/in/ishimwe-christian-b2bb5730b">
-                            <i class="fab fa-linkedin text-blue-500"></i>
-                            <span>Hire Me</span>
+                    <p class="text-indigo-500 font-semibold text-lg mb-6 animate-fade-down">Welcome to my portfolio</p>
+                    <h1 class="animate-fade-up">Ishimwe<br>Christian</h1>
+                    <p class="subtitle animate-fade-up delay-1">AI & Solutions Developer</p>
+                    <div class="flex gap-6 animate-fade-up delay-3">
+                        <a href="https://www.linkedin.com/in/ishimwe-christian-b2bb5730b" class="btn-primary flex items-center gap-2">
+                            <i class="fab fa-linkedin"></i> Hire Me
                         </a>
                     </div>
                 </div>
+                <div class="hidden md:block animate-slide-right">
+                            <img src="2.png" alt="" sizes="10" srcset="">
+                </div>
             </div>
-            <!-- Hero Image -->
-            <div class="col-sm-12 col-md-6 d-none d-md-block">
-                <div class="hero-image">
-                    <img src="img/me1.png" alt="Hero Image">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="hidden md:block animate-slide-left">
+                    <div class="card p-8">
+                        <div class="w-full p-5 h-96 bg-gradient-to-br from-indigo-500/20 to-green-500/20 rounded-lg flex items-center justify-center text-5xl">
+                            <img src="3.png" alt="" sizes="10" srcset="">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slide-right">
+                    <div class="section-header">
+                        <p>Learn About Me</p>
+                        <h2>+3 Years Experience</h2>
+                        <p class="desc">I am an AI and Solutions Developer with a strong foundation in building intelligent, scalable web applications using modern technologies and industry best practices. My experience in freelance development has strengthened my ability to design and deliver high-quality, tailored solutions that drive innovation and efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="section-header text-center mb-16">
+            <p>What I Excel At</p>
+            <h2>My Core Skills</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Artificial Intelligence & Machine Learning -->
+            <div class="card skill-card stagger-item delay-1">
+                <div class="skill-header">
+                    <strong><i class="fas fa-brain text-indigo-500 mr-2"></i>Artificial Intelligence & Machine Learning</strong>
+                    <span>90%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%"></div>
+                </div>
+                <div class="skill-icons">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <div class="skill-icon"><i class="fab fa-tensorflow"></i></div>
+                </div>
+            </div>
+
+            <!-- Full-Stack Solution Development -->
+            <div class="card skill-card stagger-item delay-2">
+                <div class="skill-header">
+                    <strong><i class="fas fa-code text-green-500 mr-2"></i>Full-Stack Solution Development</strong>
+                    <span>95%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 95%"></div>
+                </div>
+                <div class="skill-icons">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                    <div class="skill-icon"><i class="fab fa-laravel"></i></div>
+                </div>
+            </div>
+
+            <!-- Data Engineering & Analytics -->
+            <div class="card skill-card stagger-item delay-3">
+                <div class="skill-header">
+                    <strong><i class="fas fa-database text-purple-500 mr-2"></i>Data Engineering & Analytics</strong>
+                    <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%"></div>
+                </div>
+                <div class="skill-icons">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <div class="skill-icon"><i class="fas fa-file-code"></i></div>
+                </div>
+            </div>
+
+            <!-- Cloud & DevOps -->
+            <div class="card skill-card stagger-item delay-4">
+                <div class="skill-header">
+                    <strong><i class="fas fa-cloud text-orange-500 mr-2"></i>Cloud & DevOps</strong>
+                    <span>80%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%"></div>
+                </div>
+                <div class="skill-icons">
+                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                    <div class="skill-icon"><i class="fab fa-linux"></i></div>
+                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Hero End -->
+</section>
 
 
-
-        <!-- About Start -->
-        <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="about-img">
-                            <img src="img/IMG-20240616-WA0040.jpg" alt="Image">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-content">
-                            <div class="section-header text-left">
-                                <p>Learn About Me</p>
-                                <h2>2 Years Experience</h2>
-                            </div>
-                            <div class="about-text">
-                                <p>
-                                    I am a Junior Web Developer, where I focus on developing robust web applications using different methods and other modern technologies. My freelance experience has also allowed me to work with diverse clients, further refining my ability to deliver high-quality solutions tailored to unique requirements
-                                </p>
-                            </div>
-                            <!-- Skills Section Start -->
-<div class="skills bg-gray-50 py-12">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-            <p class="text-blue-500 font-semibold">Skills</p>
-            <h2 class="text-3xl font-bold">What I Am Good At</h2>
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="section-header text-center mb-16">
+            <p>What I Do</p>
+            <h2>AI-Driven & Innovative Solutions</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-            <!-- Web Design -->
-            <div>
-                <div class="skill-name flex justify-between items-center mb-2">
-                    <p class="flex items-center">
-                        <i class="fas fa-paint-brush text-blue-500 mr-2"></i>
-                        Web Design
-                    </p>
-                    <p>75%</p>
-                </div>
-                <div class="progress bg-gray-300 rounded-full h-3">
-                    <div class="progress-bar bg-blue-500 h-3 rounded-full" style="width: 75%;"></div>
-                </div>
-                <div class="flex space-x-2 mt-2 text-blue-500">
-                    <i class="fab fa-html5"></i>
-                    <i class="fab fa-css3-alt"></i>
-                    <i class="fas fa-drafting-compass"></i>
-                    <i class="fas fa-palette"></i>
-                    <i class="fas fa-vector-square"></i>
-                    <i class="fas fa-ruler-combined"></i>
-                </div>
+        <div class="service-grid">
+
+            <!-- AI Development -->
+            <div class="card p-5 stagger-item delay-1">
+                <div class="service-icon"><i class="fas fa-brain text-indigo-500"></i></div>
+                <h3>Artificial Intelligence Solutions</h3>
+                <p>Designing and deploying intelligent systems powered by machine learning and natural language processing. I build AI models that automate processes, enhance decision-making, and deliver real business impact.</p>
             </div>
 
-            <!-- Web Development -->
-            <div>
-                <div class="skill-name flex justify-between items-center mb-2">
-                    <p class="flex items-center">
-                        <i class="fas fa-code text-green-500 mr-2"></i>
-                        Web Development
-                    </p>
-                    <p>95%</p>
-                </div>
-                <div class="progress bg-gray-300 rounded-full h-3">
-                    <div class="progress-bar bg-green-500 h-3 rounded-full" style="width: 95%;"></div>
-                </div>
-                <div class="flex space-x-2 mt-2 text-green-500">
-                    <i class="fab fa-js"></i>
-                    <i class="fab fa-react"></i>
-                    <i class="fab fa-node-js"></i>
-                    <i class="fab fa-php"></i>
-                    <i class="fab fa-laravel"></i>
-                    <i class="fab fa-docker"></i>
-                </div>
+            <!-- Software & Web Solutions -->
+            <div class="card p-5 stagger-item delay-2">
+                <div class="service-icon"><i class="fas fa-code text-green-500"></i></div>
+                <h3>Full-Stack Application Development</h3>
+                <p>Developing robust, scalable web and software solutions using modern technologies. From architecture design to deployment, I ensure high performance, security, and seamless user experience.</p>
             </div>
 
-            <!-- Graphic Design -->
-            <div>
-                <div class="skill-name flex justify-between items-center mb-2">
-                    <p class="flex items-center">
-                        <i class="fas fa-pencil-ruler text-purple-500 mr-2"></i>
-                        Graphic Design
-                    </p>
-                    <p>90%</p>
-                </div>
-                <div class="progress bg-gray-300 rounded-full h-3">
-                    <div class="progress-bar bg-purple-500 h-3 rounded-full" style="width: 90%;"></div>
-                </div>
-                <div class="flex space-x-2 mt-2 text-purple-500">
-                    <i class="fab fa-adobe"></i>
-                    <i class="fas fa-brush"></i>
-                    <i class="fas fa-camera-retro"></i>
-                    <i class="fas fa-vector-square"></i>
-                    <i class="fas fa-file-image"></i>
-                    <i class="fas fa-palette"></i>
-                </div>
+            <!-- Data Engineering & Analytics -->
+            <div class="card p-5 stagger-item delay-3">
+                <div class="service-icon"><i class="fas fa-database text-purple-500"></i></div>
+                <h3>Data Engineering & Analytics</h3>
+                <p>Transforming raw data into actionable insights through ETL pipelines, predictive analytics, and visualization dashboards. I specialize in creating data-driven systems that empower smarter decisions.</p>
             </div>
 
-            <!-- Team Work -->
-            <div>
-                <div class="skill-name flex justify-between items-center mb-2">
-                    <p class="flex items-center">
-                        <i class="fas fa-users text-orange-500 mr-2"></i>
-                        Team Work
-                    </p>
-                    <p>85%</p>
-                </div>
-                <div class="progress bg-gray-300 rounded-full h-3">
-                    <div class="progress-bar bg-orange-500 h-3 rounded-full" style="width: 85%;"></div>
-                </div>
-                <div class="flex space-x-2 mt-2 text-orange-500">
-                    <i class="fas fa-users"></i>
-                    <i class="fas fa-handshake"></i>
-                    <i class="fas fa-comments"></i>
-                    <i class="fas fa-lightbulb"></i>
-                    <i class="fas fa-project-diagram"></i>
-                    <i class="fas fa-network-wired"></i>
-                </div>
+            <!-- Cloud & Automation -->
+            <div class="card p-5 stagger-item delay-4">
+                <div class="service-icon"><i class="fas fa-cloud text-orange-500"></i></div>
+                <h3>Cloud Infrastructure & Automation</h3>
+                <p>Building and managing cloud-native architectures using AWS, Docker, and CI/CD pipelines. I focus on creating automated, scalable environments that enhance deployment efficiency and reliability.</p>
             </div>
+
         </div>
     </div>
-</div>
-<!-- Skills Section End -->
+</section>
 
-                            <a class="btn" href="#">Learn More</a>
-                        </div>
-                    </div>
+
+    <!-- Experience Section -->
+    <section class="experience-section" id="experience">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="section-header text-center mb-16">
+            <p>My Resume</p>
+            <h2>Professional Experience</h2>
+        </div>
+
+        <div class="timeline">
+            
+            <!-- Clebut Experts Ltd -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content animate-slide-left delay-1">
+                    <div class="timeline-date">2024 - 2025</div>
+                    <h3>Software Engineer & Chief of AI Innovation</h3>
+                    <h4>Clebut Experts Ltd</h4>
+                    <p>Led the design and implementation of AI-driven solutions and intelligent automation systems. Oversaw the integration of machine learning models into enterprise platforms and guided a cross-functional team in building scalable, data-centric applications that improved client efficiency and decision-making.</p>
                 </div>
             </div>
-        </div>
-        <!-- About End -->
-        
-        
-        <!-- Service Start -->
-        <div class="service" id="service">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>What I do</p>
-                    <h2>Awesome Quality Services</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-laptop"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Web Design</h3>
-                                <p>
-                                    As a web designer, I create visually appealing, user-friendly, and responsive websites that capture the essence of your brand. My designs prioritize user experience (UX) and user interface (UI), ensuring that visitors have an intuitive and engaging experience. Whether you need a clean, modern layout or a more creative and unique design, I tailor every aspect to meet your specific goals.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-laptop-code"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Web Development</h3>
-                                <p>
-                                    In web development, I turn designs into fully functional websites using the latest technologies and best practices. I specialize in creating robust, scalable, and secure web applications that work seamlessly across devices. From front-end development to back-end solutions, I ensure that your website is not only aesthetically pleasing but also highly performant and optimized for search engines.                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-palette"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Graphic Design</h3>
-                                <p>
-                                    My graphic design services include crafting visually compelling graphics that enhance your brand identity. From logos and business cards to social media graphics and marketing materials, I deliver designs that communicate your message effectively. My focus is on creating designs that resonate with your audience and leave a lasting impression.                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-users"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Team Work</h3>
-                                <p>
-                                    Collaboration is at the heart of my process. I work closely with clients, team members, and other stakeholders to ensure that every project runs smoothly and meets its objectives. My approach to teamwork involves clear communication, active listening, and a commitment to delivering results. Whether leading a project or being part of a larger team, I thrive in environments where collaboration and innovation are key.                                </p>
-                            </div>
-                        </div>
-                    </div>
+
+            <!-- Tian Group Innovation -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content animate-slide-right delay-2">
+                    <div class="timeline-date">2023 - 2024</div>
+                    <h3>Full-Stack & Solutions Engineer</h3>
+                    <h4>Tian Group Innovation, Gasabo</h4>
+                    <p>Developed end-to-end digital solutions, combining web technologies with intelligent backend systems. Focused on building scalable APIs, cloud-based architectures, and data automation tools to streamline business operations and enhance user experiences.</p>
                 </div>
             </div>
+
         </div>
-        <!-- Service End -->
-        
-        
-         <!-- Experience Start -->
-        <div class="experience" id="experience">
-            <div class="container">
-                <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>My Resume</p>
-                    <h2>Working Experience</h2>
-                </header>
-                <div class="timeline">
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2022 - 2023</div>
-                            <h2>Freelance Web Developer</h2>
-                            <h4>None, Kigai, Muhima</h4>
-                            <p>
-                                As a Freelance Software Developer, I have had the opportunity to work on a variety of projects, honing my skills and expanding my expertise in both backend and frontend development. 
-                            </p>
-                        </div>
+    </div>
+</section>
+
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-header text-center mb-16">
+                <p>My Portfolio</p>
+                <h2>Excellent Projects</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="card portfolio-card stagger-item delay-1">
+                    <div class="h-64 bg-gradient-to-br from-indigo-500/20 to-blue-500/20 flex items-center justify-center">
+                        <img src="ijwi-high-resolution-logo.png" alt="" srcset="">
                     </div>
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2023 - 2024</div>
-                            <h2>Full Stack Engineer</h2>
-                            <h4>Gasabo, Kigali City, Rwanda</h4>
-                            <p>
-                                At Tian Group Innovation, I work as a Full Stack Developer, focusing on creating comprehensive web solutions from concept to deployment. My role encompasses both frontend and backend development, ensuring that applications are efficient, scalable, and user-friendly.
-                            </p>
+                    <div class="portfolio-info">
+                        <div class="category">Citizen complaint powered by AI</div>
+                        <h3>Ijwi ryanjye (Igire Hub)</h3>
+                        <p>Transform Public Services with Igire Citizen Hub A smarter way to submit, track, and resolve complaints</p>
+                        <div class="flex justify-between items-center">
+                            <div class="portfolio-links">
+                                <a href="https://igirehub.vercel.app/"><i class="fas fa-link"></i> Visit</a>
+                            </div>
+                            <span class="status-badge complete">V0.0.1 Beta Released</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="card portfolio-card stagger-item delay-2">
+                    <div class="h-64 bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center">
+                        <img src="kizachat-1.png" width="-10rem" alt="" srcset="">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="category">AI Chatbot</div>
+                        <h3>Kizachat</h3>
+                        <p>KizaChat is an AI-powered chatbot designed to provide intelligent and interactive conversations.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="portfolio-links">
+                                <a href="https://kizachat.netlify.app"><i class="fas fa-link"></i> Visit</a>
+                            </div>
+                            <span class="status-badge complete">Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card portfolio-card stagger-item delay-3">
+                    <div class="h-64 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                        <img src="digital-1.png" alt="" srcset="">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="category">Digital Health Platform</div>
+                        <h3>Digital Retransfer</h3>
+                        <p>revolutionizing patient data management at Huye Hospital (Rwanda) through secure, real-time record digitization and transfer.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="portfolio-links">
+                                <a href="https://digitalretransfer.vercel.app"><i class="fas fa-link"></i> Visit</a>
+                            </div>
+                            <span class="status-badge complete">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                
             </div>
-        </div>
-        <!-- Job Experience End -->
-        
-       <!-- Portfolio Start -->
-  <div id="portfolio" class="bg-gray-50 py-12">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-12">
-        <p class="text-blue-500 font-semibold">My Portfolio</p>
-        <h2 class="text-3xl font-bold">My Excellent Portfolio</h2>
-      </div>
-      <!-- Portfolio Filter -->
-      <ul class="flex justify-center space-x-4 mb-8">
-        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter="*">All</li>
-        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter=".filter-1">Web Design</li>
-        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter=".filter-2">Web Development</li>
-        <li class="cursor-pointer text-gray-700 hover:text-blue-500 font-medium" data-filter=".filter-3">Graphic Design</li>
-      </ul>
-      <!-- Portfolio Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Portfolio Item 1 -->
-        <div class="portfolio-item filter-1 bg-white shadow-md rounded-lg p-4">
-          <img src="img/pedicaLogo.png" alt="Pedica Ltd" class="rounded-t-md w-full">
-          <div class="mt-4">
-            <h3 class="text-xl font-bold">Pedica Ltd Website</h3>
-            <p class="text-gray-600 text-sm">Category: Web Design</p>
-            <p class="text-gray-500 text-sm">An informative website for Pedica Ltd.</p>
-            <div class="flex justify-between items-center mt-4">
-              <div class="space-x-2">
-                <a href="https://pedicaltd.com" class="text-gray-500 hover:text-blue-500">
-                  <i class="fas fa-link"></i> Website
+            <div class="text-center mt-16">
+                <a href="https://github.com/IshChristian" class="btn-primary inline-flex items-center gap-2">
+                    <i class="fab fa-github"></i> More Projects on GitHub
                 </a>
-              </div>
-              <span class="text-sm font-semibold text-green-500">Complete</span>
             </div>
-          </div>
         </div>
-        <!-- Portfolio Item 2 -->
-        <div class="portfolio-item filter-2 bg-white shadow-md rounded-lg p-4">
-          <img src="img/globalexpense.jpg" alt="Global Expense" class="rounded-t-md w-full">
-          <div class="mt-4">
-            <h3 class="text-xl font-bold">Global Expense Money Tracker</h3>
-            <p class="text-gray-600 text-sm">Category: Web Development</p>
-            <p class="text-gray-500 text-sm">A web app to manage personal finances.</p>
-            <div class="flex justify-between items-center mt-4">
-              <div class="space-x-2">
-                <a href="https://github.com/IshChristian/Global-Expense-Money-Tracker-GEMT-.git" class="text-gray-500 hover:text-blue-500">
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://tiangroup.pedicaltd.com" class="text-gray-500 hover:text-blue-500">
-                  <i class="fas fa-link"></i> Website
-                </a>
-              </div>
-              <span class="text-sm font-semibold text-green-500">Complete</span>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-header text-center mb-16">
+                <p>Client Testimonials</p>
+                <h2>Be My Next Client</h2>
             </div>
-          </div>
-        </div>
-        <!-- Portfolio Item 3 -->
-        <!-- Project 3 -->
-        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
-            <img src="img/tiangroup.jpg" alt="Tian Group" class="rounded-t-lg w-full">
-            <div class="p-4">
-                <h3 class="text-lg font-bold mb-2">Tian Group Innovation</h3>
-                <p class="text-sm text-gray-500">Category: Graphic Design</p>
-                <p class="text-sm text-gray-600 mb-4">Corporate branding for Tian Group.</p>
-                <div class="flex justify-between items-center">
-                    <div class="space-x-2">
-                        
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card p-8 stagger-item delay-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center text-white font-bold">
+                            P
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Pedica Ltd</h4>
+                            <p class="text-sm text-gray-400">Web Services</p>
+                        </div>
                     </div>
-                    <span class="text-sm font-semibold text-green-500">Active</span>
+                    <p class="text-gray-300">Professional and dedicated work. Transformed our vision into a stunning web presence.</p>
+                </div>
+
+                <div class="card p-8 stagger-item delay-2">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                            W
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Widows Faith</h4>
+                            <p class="text-sm text-gray-400">Ministry Branding</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Exceptional design and execution. Our ministry's brand was brought to life beautifully.</p>
+                </div>
+
+                <div class="card p-8 stagger-item delay-3">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white font-bold">
+                            T
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Tian Group</h4>
+                            <p class="text-sm text-gray-400">Corporate Services</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Outstanding collaboration and technical expertise. A true professional to work with.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Project 4 -->
-        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
-            <img src="img/widosfaith.jpg" alt="Widows Faith" class="rounded-t-lg w-full">
-            <div class="p-4">
-                <h3 class="text-lg font-bold mb-2">Widows Faith Fellowship Ministry</h3>
-                <p class="text-sm text-gray-500">Category: Web application</p>
-                <p class="text-sm text-gray-600 mb-4">A ministry's official branding.</p>
-                <div class="flex justify-between items-center">
-                    <div class="space-x-2">
-                        <a href="https://widowsfaith.org" class="text-gray-500 hover:text-blue-500">
-                            <i class="fas fa-link"></i> Website
-                        </a>
+    <!-- Footer -->
+    <footer>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-gray-800">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ishimwe Christian</h3>
+                    <p class="text-gray-400">AI & Solutions Developer</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400">+250 791 364 641</p>
+                    <p class="text-gray-400">ishimwechristia94@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Follow Me</h4>
+                    <div class="social-links">
+                        <a href="https://wa.me/qr/YMNL7CGWFEN2L1"><i class="fab fa-whatsapp"></i></a>
+                        <a href="www.linkedin.com/in/ishimwe-christian-b2bb5730b"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/ish_christian__/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/IshChristian"><i class="fab fa-github"></i></a>
                     </div>
-                    <span class="text-sm font-semibold text-green-500">Complete</span>
                 </div>
             </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
-            <img src="img/logo 3.png" alt="Rank Virtue Trait" class="rounded-t-lg w-full">
-            <div class="p-4">
-                <h3 class="text-lg font-bold mb-2">Rank Virtue Trait</h3>
-                <p class="text-sm text-gray-500">Category: Graphic Design</p>
-                <p class="text-sm text-gray-600 mb-4">A ranking system for personality traits.</p>
-                <div class="flex justify-between items-center">
-                    <div class="space-x-2">
-                        
-                    </div>
-                    <span class="text-sm font-semibold text-yellow-500">Pending</span>
-                </div>
+            <div class="text-center pb-8">
+                <p class="text-gray-500">&copy; 2025 Ishimwe Christian. All Rights Reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Project 6 -->
-        <div class="portfolio-item filter-3 bg-white shadow-md rounded-lg">
-            <img src="img/UPS LOGO R.png" alt="Ubumwe Protocol & Services" class="rounded-t-lg w-full">
-            <div class="p-4">
-                <h3 class="text-lg font-bold mb-2">Ubumwe Protocol & Services</h3>
-                <p class="text-sm text-gray-500">Category: Graphic Design</p>
-                <p class="text-sm text-gray-600 mb-4">Corporate UPS for weddings.</p>
-                <div class="flex justify-between items-center">
-                    <div class="space-x-2">
-                        
-                    </div>
-                    <span class="text-sm font-semibold text-green-500">Active</span>
-                </div>
-            </div>
-        </div>
-      </div>
-      <!-- Load More Button -->
-      <div class="text-center mt-8">
-        <a href="https://github.com/IshChristian" class="btn bg-blue-500 text-green px-6 py-2 rounded-md flex items-center justify-center space-x-2 hover:bg-blue-600">
-            <i class="fab fa-github"></i>
-            <span>Load More on GitHub</span>
-        </a>
-    </div>
-    </div>
-  </div>
-  <!-- Portfolio End -->
+    <script>
+        // Smooth scroll for progress bars
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-<script>
-    // Portfolio Filtering
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+        // Observe all stagger items
+        document.querySelectorAll('.stagger-item').forEach(item => {
+            observer.observe(item);
+        });
 
-    filterButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            // Remove 'active' class from all buttons
-            filterButtons.forEach((button) => button.classList.remove('active'));
-            btn.classList.add('active');
+        // Observe progress fills
+        document.querySelectorAll('.progress-fill').forEach(fill => {
+            const width = fill.style.width;
+            fill.style.width = '0';
+            
+            observer.observe(fill.parentElement.parentElement);
+            
+            const parent = fill.parentElement.parentElement;
+            const originalObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        fill.style.width = width;
+                        originalObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            originalObserver.observe(parent);
+        });
 
-            const filter = btn.getAttribute('data-filter');
-
-            portfolioItems.forEach((item) => {
-                if (filter === '*' || item.classList.contains(filter.substring(1))) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
+        // Smooth navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
-    });
-</script>
-
-
-        
-        <!-- Price Start -->
-        <div class="price" id="price">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>Pricing Plan</p>
-                    <h2>Affordable Price</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <div class="price-title">
-                                    <h2>Basic</h2>
-                                </div>
-                                <div class="price-prices">
-                                    <h2><small>$</small>95<span></span></h2>
-                                </div>
-                            </div>
-                            <div class="price-body">
-                                <div class="price-description">
-                                    <ul>
-                                        <li>Landing Page</li>
-                                        <li>Logos</li>
-                                        <li>Ads Banners</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-action">
-                                    <a class="btn" href="https://bit.ly/45Pvj5A?r=lp">Order Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="price-item featured-item">
-                            <div class="price-header">
-                                <div class="price-title">
-                                    <h2>Standard</h2>
-                                </div>
-                                <div class="price-prices">
-                                    <h2><small>$</small>150<span></span></h2>
-                                </div>
-                            </div>
-                            <div class="price-body">
-                                <div class="price-description">
-                                    <ul>
-                                        <li>Landing Page</li>
-                                        <li>Content Management System</li>
-                                        <li>Logo Design</li>
-                                        <li>Ads Banner Design</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-action">
-                                    <a class="btn" href="https://bit.ly/45Pvj5A?r=lp">Order Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <div class="price-title">
-                                    <h2>Premium</h2>
-                                </div>
-                                <div class="price-prices">
-                                    <h2><small>$</small>59<span>/ mo</span></h2>
-                                </div>
-                            </div>
-                            <div class="price-body">
-                                <div class="price-description">
-                                    <ul>
-                                        <li>Landing Page</li>
-                                        <li>Content Management System</li>
-                                        <li>Logo Design</li>
-                                        <li>Ads Banner</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-action">
-                                    <a class="btn" href="https://bit.ly/45Pvj5A?r=lp">Order Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Price End -->
-        
-        
-        <!-- Testimonial Start -->
-        <div class="testimonial wow fadeInUp" data-wow-delay="0.1s" id="review">
-            <div class="container">
-                <div class="testimonial-icon">
-                    <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                        <h2>Be My Next Client</h2>
-                    </div>
-                    <i class="fa fa-quote-left"></i>
-                </div>
-                <div class="owl-carousel testimonials-carousel">
-                    <div class="testimonial-item">
-                        <div class="testimonial-img">
-                            <img src="img/pedicaLogo.png" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <h3>Pedica Ltd</h3>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-img">
-                            <img src="img/widosfaith.jpg" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <h3>Widows Faith Fellowship</h3>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-img">
-                            <img src="img/logo 1-01-03.jpg" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <h3>Electronic One Ltd</h3>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-img">
-                            <img src="img/logo 3.png" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <h3>Rank Virtue Rank</h3>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-img">
-                            <img src="img/UPS LOGO R.png" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <h3>Ubumwe Protocol</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
-
-        <!-- Footer Start -->
-        <div class="footer wow fadeIn" data-wow-delay="0.3s">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="footer-info">
-                        <h2>Ishimwe Christian</h2>
-                        <h3>K 1 AVE, Kigali, Muhima</h3>
-                        <div class="footer-menu">
-                            <p>+250 791364641</p>
-                            <p>ishimwechristia94@gmail.com</p>
-                        </div>
-                        <div class="footer-social">
-                            <a href="https://bit.ly/3SdtwUM?r=lp"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://bit.ly/45Pvj5A?r=lp"><i class="fab fa-whatsapp"></i></a>
-                            <a href="https://bit.ly/3sabvMy?r=lp"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/ishimwe-christian-b2bb5730b"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="container copyright">
-                    <p>&copy; <a href="#">Is.Christian</a>, All Right Reserved | 
-					
-					<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="https://bit.ly/3sabvMy?r=lp">Me</a></p>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-        
-        
-        <!-- Back to top button -->
-        <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
-        
-        
-
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/typed/typed.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/isotope/isotope.pkgd.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+    </script>
+</body>
 </html>
